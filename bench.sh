@@ -24,8 +24,8 @@ NC='\033[0m' # No Color
 # Which implementations to test (set to 1 to enable, 0 to disable)
 RUN_SEQUENTIAL=1
 RUN_OMP_CPU=1
-RUN_OMP_GPU=1      # Set to 1 if you have OpenMP GPU offloading support
-RUN_CUDA=0         # Set to 1 if you have NVIDIA GPU and CUDA
+RUN_OMP_GPU=0      # Set to 1 if you have OpenMP GPU offloading support
+RUN_CUDA=1         # Set to 1 if you have NVIDIA GPU and CUDA
 
 # Number of threads to use for OpenMP CPU/GPU implementations
 OMP_NUM_THREADS=4
