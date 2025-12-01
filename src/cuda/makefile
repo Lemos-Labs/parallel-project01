@@ -12,10 +12,5 @@ TARGET := $(BINDIR)/kmeans_$(EXEC)
 
 all: build
 
-build: $(TARGET)
-
-$(TARGET): $(SRC)
-	@mkdir -p $(BINDIR)
-	$(NVCC) $(NVFLAGS) -o $@ $^
-	@rm -f $(TARGET)
+build: $(NVCC) $(NVFLAGS) -o $(TARGET) kmeans_cuda.cu
 

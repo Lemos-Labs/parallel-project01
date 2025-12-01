@@ -54,7 +54,7 @@ TESTS=(
 NUM_RUNS=3
 
 # Clean build before testing (set to 1 to clean, 0 to skip)
-CLEAN_BUILD=1
+CLEAN_BUILD=0
 
 # Output directory for results
 RESULTS_DIR="results"
