@@ -35,12 +35,12 @@ OMP_NUM_THREADS=4
 # where K = number of clusters, max_iters = maximum iterations
 TESTS=(
     # Small tests for quick validation
-    # "dataset/small_2d.csv:5:10:Small 2D dataset"
-    # "dataset/small_5d.csv:5:10:Small 5D dataset"
+    "dataset/small_2d.csv:5:10:Small 2D dataset"
+    "dataset/small_5d.csv:5:10:Small 5D dataset"
 
     # Medium tests
-    # "dataset/medium_2d.csv:10:20:Medium 2D dataset"
-    # "dataset/medium_5d.csv:10:20:Medium 5D dataset"
+    "dataset/medium_2d.csv:10:20:Medium 2D dataset"
+    "dataset/medium_5d.csv:10:20:Medium 5D dataset"
 
     # Large tests for benchmarking
     "dataset/large_2d.csv:20:20:Large 2D dataset"
