@@ -1,10 +1,8 @@
-# Variables.
-EXEC := seq
-SRC := kmeans_$(EXEC).c
+EXEC   := omp_gpu
+SRC    := kmeans_$(EXEC).c
 
-# Compilation flags.
-CC      ?= gcc
-CFLAGS  ?= -O3 -march=native
+CC      ?= clang
+CFLAGS  ?= -O3 -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda
 LDFLAGS ?= -lm
 
 TARGET := $(BINDIR)/kmeans_$(EXEC)
@@ -20,4 +18,4 @@ $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 clean:
-	@rm -f $(TARGET)``
+	@rm -f $(TARGET)

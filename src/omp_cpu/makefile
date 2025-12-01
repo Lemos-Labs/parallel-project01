@@ -1,10 +1,10 @@
 # Variables.
-EXEC := seq
+EXEC := omp_cpu
 SRC := kmeans_$(EXEC).c
 
-# Compilation flags.
-CC      ?= gcc
-CFLAGS  ?= -O3 -march=native
+# Compilation flags
+CC ?= gcc
+CFLAGS ?= -O3 -march=native -fopenmp
 LDFLAGS ?= -lm
 
 TARGET := $(BINDIR)/kmeans_$(EXEC)
@@ -20,4 +20,4 @@ $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 clean:
-	@rm -f $(TARGET)``
+	@rm -f $(TARGET)
