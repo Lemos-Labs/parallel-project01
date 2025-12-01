@@ -17,4 +17,5 @@ build: $(TARGET)
 $(TARGET): $(SRC)
 	@mkdir -p $(BINDIR)
 	$(NVCC) $(NVFLAGS) -o $@ $^
+	@rm -f $(TARGET)
 
