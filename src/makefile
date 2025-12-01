@@ -3,7 +3,7 @@ CURRDIR := $(CURDIR)
 SRCDIR  := $(CURRDIR)
 
 # Variables.
-TYPES := seq omp_cpu omp_gpu cuda
+TYPES := seq omp_cpu cuda
 
 .PHONY: all build clean $(TYPES)
 
