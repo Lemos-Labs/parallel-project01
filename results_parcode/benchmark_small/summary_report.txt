@@ -1,0 +1,40 @@
+======================================================================
+K-MEANS BENCHMARK SUMMARY REPORT
+======================================================================
+
+OVERALL STATISTICS
+----------------------------------------------------------------------
+Total tests run: 21
+Implementations tested: 3
+Datasets tested: 7
+Success rate: 100.0%
+
+AVERAGE EXECUTION TIME BY IMPLEMENTATION
+----------------------------------------------------------------------
+                            mean       min        max       std
+Implementation                                                 
+CUDA (4 threads)        1.099618  0.782697   2.335272  0.567873
+OpenMP CPU (4 threads)  0.582566  0.009714   2.983628  1.083612
+Sequential              2.521254  0.000904  11.486372  4.193758
+
+BEST PERFORMANCE (fastest for each test)
+----------------------------------------------------------------------
+ Test Description         Implementation  Avg Time (s)
+ Large 2D dataset OpenMP CPU (4 threads)      0.390195
+ Large 5D dataset OpenMP CPU (4 threads)      0.602695
+Medium 2D dataset OpenMP CPU (4 threads)      0.034092
+Medium 5D dataset OpenMP CPU (4 threads)      0.045054
+ Small 2D dataset             Sequential      0.005215
+ Small 5D dataset             Sequential      0.000904
+XLarge 5D dataset       CUDA (4 threads)      2.335272
+
+SPEEDUP ANALYSIS (vs Sequential)
+----------------------------------------------------------------------
+                           mean       min       max
+Implementation                                     
+CUDA (4 threads)        1.51904  0.001155  4.918644
+OpenMP CPU (4 threads)  3.25906  0.071820  6.107246
+
+======================================================================
+End of Report
+======================================================================
