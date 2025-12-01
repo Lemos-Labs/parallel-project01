@@ -4,7 +4,7 @@ SRC    := kmeans_$(EXEC).cu
 
 # Compilation flags.
 NVCC    ?= nvcc
-NVFLAGS ?= -O3 -arch=sm_70    # ajuste o sm_XX para a sua GPU
+NVFLAGS ?= -O3 -arch=sm_61
 
 TARGET := $(BINDIR)/kmeans_$(EXEC)
 

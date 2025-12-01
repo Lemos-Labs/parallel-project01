@@ -1,8 +1,6 @@
 // kmeans_cuda.cu
 //
 // Versão CUDA do K-Means.
-// Compilação sugerida:
-//   nvcc -O3 -arch=sm_70 -o kmeans_cuda kmeans_cuda.cu
 //
 // PREENCHER TEMPOS NO CABEÇALHO DEPOIS DAS MEDIÇÕES.
 //
