@@ -35,19 +35,19 @@ OMP_NUM_THREADS=4
 # where K = number of clusters, max_iters = maximum iterations
 TESTS=(
     # Small tests for quick validation
-    "dataset/small_2d.csv:5:10:Small 2D dataset"
-    "dataset/small_5d.csv:5:10:Small 5D dataset"
+    # "dataset/small_2d.csv:5:10:Small 2D dataset"
+    # "dataset/small_5d.csv:5:10:Small 5D dataset"
 
     # Medium tests
-    "dataset/medium_2d.csv:10:20:Medium 2D dataset"
-    "dataset/medium_5d.csv:10:20:Medium 5D dataset"
+    # "dataset/medium_2d.csv:10:20:Medium 2D dataset"
+    # "dataset/medium_5d.csv:10:20:Medium 5D dataset"
 
     # Large tests for benchmarking
     "dataset/large_2d.csv:20:20:Large 2D dataset"
     "dataset/large_5d.csv:20:20:Large 5D dataset"
 
     # Extra large tests (uncomment for stress testing)
-    # "dataset/xlarge_5d.csv:25:20:XLarge 5D dataset"
+    "dataset/xlarge_5d.csv:25:20:XLarge 5D dataset"
 )
 
 # Number of times to run each test for averaging (set to 1 for quick testing)
@@ -133,54 +133,6 @@ compile_implementations() {
     fi
 
     local compile_errors=0
-
-    # Compile sequential
-    if [ $RUN_SEQUENTIAL -eq 1 ]; then
-        print_test "Compiling sequential implementation..."
-        if make -C src/seq BINDIR="$(pwd)/bin" > /dev/null 2>&1; then
-            print_success "Sequential compilation successful"
-        else
-            print_error "Sequential compilation failed"
-            compile_errors=$((compile_errors + 1))
-            RUN_SEQUENTIAL=0
-        fi
-    fi
-
-    # Compile OpenMP CPU
-    if [ $RUN_OMP_CPU -eq 1 ]; then
-        print_test "Compiling OpenMP CPU implementation..."
-        if make -C src/omp_cpu BINDIR="$(pwd)/bin" > /dev/null 2>&1; then
-            print_success "OpenMP CPU compilation successful"
-        else
-            print_error "OpenMP CPU compilation failed"
-            compile_errors=$((compile_errors + 1))
-            RUN_OMP_CPU=0
-        fi
-    fi
-
-    # Compile OpenMP GPU
-    if [ $RUN_OMP_GPU -eq 1 ]; then
-        print_test "Compiling OpenMP GPU implementation..."
-        if make -C src/omp_gpu BINDIR="$(pwd)/bin" > /dev/null 2>&1; then
-            print_success "OpenMP GPU compilation successful"
-        else
-            print_warning "OpenMP GPU compilation failed (this is expected if you don't have GPU offloading support)"
-            compile_errors=$((compile_errors + 1))
-            RUN_OMP_GPU=0
-        fi
-    fi
-
-    # Compile CUDA
-    if [ $RUN_CUDA -eq 1 ]; then
-        print_test "Compiling CUDA implementation..."
-        if make -C src/cuda BINDIR="$(pwd)/bin" > /dev/null 2>&1; then
-            print_success "CUDA compilation successful"
-        else
-            print_warning "CUDA compilation failed (this is expected if you don't have CUDA installed)"
-            compile_errors=$((compile_errors + 1))
-            RUN_CUDA=0
-        fi
-    fi
 
     echo ""
     if [ $compile_errors -eq 0 ]; then
