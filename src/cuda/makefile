@@ -4,7 +4,7 @@ SRC    := kmeans_$(EXEC).cu
 
 # Compilation flags.
 NVCC    ?= nvcc
-NVFLAGS ?= -O3 -arch=sm_61 -std=c++11
+NVFLAGS ?= -O3 -arch=sm_61
 
 TARGET := $(BINDIR)/kmeans_$(EXEC)
 
@@ -12,5 +12,10 @@ TARGET := $(BINDIR)/kmeans_$(EXEC)
 
 all: build
 
-build: $(NVCC) $(NVFLAGS) -o $(TARGET) kmeans_cuda.cu
+build: $(TARGET)
 
+$(TARGET): $(SRC)
+	@mkdir -p $(BINDIR)
+	$(NVCC) $(NVFLAGS) -o $@ $^
+
+	@rm -f $(TARGET)
