@@ -13,7 +13,6 @@ testing the K-means algorithm.
 
 import argparse
 import os
-from pathlib import Path
 
 import numpy as np
 
@@ -95,7 +94,7 @@ def save_csv(data, filename):
 
     # Save with comma separator, no header, no row indices
     np.savetxt(filename, data, delimiter=',', fmt='%.6f')
-    print(f"Generated {filename}: {data.shape[0]} points, {data.shape[1]} dimensions")
+    print("Generated {}: {} points, {} dimensions".format(filename, data.shape[0], data.shape[1]))
 
 
 def generate_predefined_datasets(output_dir):
@@ -125,7 +124,7 @@ def generate_predefined_datasets(output_dir):
         {"name": "xlarge_10d.csv", "n": 1000000, "d": 10, "k": 20, "std": 5.0, "seed": 42},
     ]
 
-    print(f"Generating predefined datasets in '{output_dir}'...")
+    print("Generating predefined datasets in '{}'...".format(output_dir))
     print("=" * 70)
 
     for params in datasets:
